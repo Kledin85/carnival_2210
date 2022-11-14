@@ -43,10 +43,18 @@ RSpec.describe Ride do
     expect(ride1.rider_log[visitor1]).to eq(2)
   end
 
-  it 'takes an admision fee' do
+  it 'takes an admission fee' do
     ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
     visitor1 = Visitor.new('Bruce', 54, '$10')
 
-    expect(visitor1.admission_fee).to eq(8)
+    expect(ride1.take_admission_fee(visitor1)).to eq(9)
+    # expect(ride1.take_admission_fee(visitor1)).to eq(8)
+  end
+
+  it 'can check if a rider is qualified to board a ride' do
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+
+    expect(ride1.qualified?(visitor1)).to eq true
   end
 end
