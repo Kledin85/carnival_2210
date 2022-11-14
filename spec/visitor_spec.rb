@@ -43,7 +43,7 @@ RSpec.describe Visitor do
     ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
     visitor1 = Visitor.new('Bruce', 54, '$10')
 
-    visitor1.pay
+    visitor1.pay(ride1)
     expect(visitor1.spending_money).to eq (9)
   end
 end

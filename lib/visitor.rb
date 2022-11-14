@@ -12,6 +12,10 @@ class Visitor
     @preferences = []
   end
 
+  def pay(ride)
+    @spending_money -= ride.admission_fee
+  end
+
   def add_preference(preference)
     @preferences.push(preference)
   end

@@ -17,7 +17,8 @@ class Ride
   end
 
   def take_admission_fee(rider)
-    rider.spending_money - @admission_fee
+    # require 'pry' ; binding.pry
+    rider.spending_money -= @admission_fee
   end
 
   def qualified?(rider)
