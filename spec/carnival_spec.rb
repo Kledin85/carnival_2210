@@ -54,13 +54,9 @@ RSpec.describe Carnival do
 
 
     ride2.board_rider(visitor1)
-    ride2.board_rider(visitor2)
 
     ride3.board_rider(visitor3)
-    # require 'pry' ; binding.pry
-    expect(carnival.total_revenue).to eq(15)
-
-
-
+    ride3.board_rider(visitor2)
+    expect(carnival.total_revenue).to eq(10)
   end
 end

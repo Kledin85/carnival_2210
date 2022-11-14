@@ -64,6 +64,5 @@ RSpec.describe Ride do
 
     expect(ride1.qualified?(visitor1)).to eq true
     expect(ride1.qualified?(visitor2)).to eq false
-
   end
 end
