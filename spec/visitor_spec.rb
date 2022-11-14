@@ -1,4 +1,5 @@
 require './lib/visitor'
+require './lib/ride'
 
 RSpec.describe Visitor do
 
@@ -36,6 +37,13 @@ RSpec.describe Visitor do
     expect(visitor2.tall_enough?(54)).to eq false
     expect(visitor3.tall_enough?(54)).to eq true
     expect(visitor1.tall_enough?(64)).to eq false
+  end
 
+  it 'can pay an admission and reduce spending money' do
+    ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
+    visitor1 = Visitor.new('Bruce', 54, '$10')
+
+    visitor1.pay
+    expect(visitor1.spending_money).to eq (9)
   end
 end

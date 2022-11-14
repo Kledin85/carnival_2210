@@ -49,7 +49,7 @@ RSpec.describe Ride do
     visitor1 = Visitor.new('Bruce', 54, '$10')
 
     expect(ride1.take_admission_fee(visitor1)).to eq(9)
-    # expect(ride1.take_admission_fee(visitor1)).to eq(8)
+    expect(ride1.take_admission_fee(visitor1)).to eq(8)
   end
 
   it 'can check if a rider is qualified to board a ride' do
