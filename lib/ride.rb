@@ -28,7 +28,9 @@ class Ride
   end
 
   def board_rider(rider)
+    return unless qualified?(rider)
     take_admission_fee(rider)
+    @total_revenue += @admission_fee
     rider_log[rider] += 1
   end
 end

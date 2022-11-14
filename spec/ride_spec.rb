@@ -41,6 +41,7 @@ RSpec.describe Ride do
     expect(ride1.rider_log[visitor2]).to eq(1)
     ride1.board_rider(visitor1)
     expect(ride1.rider_log[visitor1]).to eq(2)
+    expect(ride1.total_revenue).to eq(3)
   end
 
   it 'takes an admission fee' do
