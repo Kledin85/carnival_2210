@@ -23,8 +23,7 @@ class Ride
   def qualified?(rider)
     rider.tall_enough?(min_height) && rider.spending_money >= @admission_fee && rider.preferences.any? do |pref|
         pref == @excitement
-        # require 'pry'; binding.pry
-      end
+    end
   end
 
   def board_rider(rider)
