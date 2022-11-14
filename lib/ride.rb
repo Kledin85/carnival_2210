@@ -16,7 +16,19 @@ class Ride
     @rider_log = Hash.new(0)
   end
 
+  def take_admission_fee(rider)
+    rider.spending_money - @admission_fee
+  end
+
+  def qualified?(rider)
+    rider.tall_enough?(min_height) && rider.spending_money >= @admission_fee && rider.preferences.any? do |pref|
+        pref == @excitement
+        # require 'pry'; binding.pry
+      end
+  end
+
   def board_rider(rider)
+    take_admission_fee(rider)
     rider_log[rider] += 1
   end
 end

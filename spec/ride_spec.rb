@@ -54,7 +54,15 @@ RSpec.describe Ride do
   it 'can check if a rider is qualified to board a ride' do
     ride1 = Ride.new({ name: 'Carousel', min_height: 24, admission_fee: 1, excitement: :gentle })
     visitor1 = Visitor.new('Bruce', 54, '$10')
+    visitor2 = Visitor.new('Day', 23, '$10')
+    visitor1.add_preference(:gentle)
+    visitor1.add_preference(:water)
+    visitor2.add_preference(:gentle)
+    visitor2.add_preference(:water)
+
 
     expect(ride1.qualified?(visitor1)).to eq true
+    expect(ride1.qualified?(visitor2)).to eq false
+
   end
 end
